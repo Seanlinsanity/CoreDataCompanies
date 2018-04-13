@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142B60C120805B3900004E70 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142B60C020805B3900004E70 /* CoreDataManager.swift */; };
 		1495BFD3206F2D0B00F72BC3 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495BFD2206F2D0B00F72BC3 /* CreateCompanyController.swift */; };
 		1495BFD6206F397000F72BC3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1495BFD4206F397000F72BC3 /* DataModel.xcdatamodeld */; };
 		14D6B24D206C8FF80045D08F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6B24C206C8FF80045D08F /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142B60C020805B3900004E70 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		1495BFD2206F2D0B00F72BC3 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 		1495BFD5206F397000F72BC3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		14D6B249206C8FF80045D08F /* CoreDataCompanies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataCompanies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 				14D6B262206C9D130045D08F /* Company.swift */,
 				1495BFD2206F2D0B00F72BC3 /* CreateCompanyController.swift */,
 				1495BFD4206F397000F72BC3 /* DataModel.xcdatamodeld */,
+				142B60C020805B3900004E70 /* CoreDataManager.swift */,
 			);
 			path = CoreDataCompanies;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				1495BFD6206F397000F72BC3 /* DataModel.xcdatamodeld in Sources */,
 				14D6B263206C9D130045D08F /* Company.swift in Sources */,
 				14D6B24D206C8FF80045D08F /* AppDelegate.swift in Sources */,
+				142B60C120805B3900004E70 /* CoreDataManager.swift in Sources */,
 				1495BFD3206F2D0B00F72BC3 /* CreateCompanyController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

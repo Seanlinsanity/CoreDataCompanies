@@ -14,6 +14,7 @@ class CompaniesController: UITableViewController, AddCompanyDelegate {
     
     let cellId = "cellId"
     var companies = [Company]()
+
     
     func addCompany(company: Company) {
         companies.append(company)
@@ -42,23 +43,28 @@ class CompaniesController: UITableViewController, AddCompanyDelegate {
     
     private func fetchCompanies(){
         
-        let persistentContainer = NSPersistentContainer(name: "DataModel")
-        persistentContainer.loadPersistentStores { (storeDescription, err) in
-            
-            if let err = err {
-                fatalError("Loading of store failed: \(err)")
-            }
-        }
-        
-        let context = persistentContainer.viewContext
+//        let persistentContainer = NSPersistentContainer(name: "DataModel")
+//        persistentContainer.loadPersistentStores { (storeDescription, err) in
+//
+//            if let err = err {
+//                fatalError("Loading of store failed: \(err)")
+//            }
+//        }
+//
+//        let context = persistentContainer.viewContext
+        let context = CoreDataManager.shared.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
         
         do{
             let companies = try context.fetch(fetchRequest)
             companies.forEach({ (company) in
-                print(company.name ?? "")
+                print(company.name)
             })
+            
+            self.companies = companies
+            self.tableView.reloadData()
+            
         }catch let fetchErr{
             print("failed to fetch company:", fetchErr)
         }
@@ -70,6 +76,14 @@ class CompaniesController: UITableViewController, AddCompanyDelegate {
         let navController = CustomNavigationController(rootViewController: createCompanyController)
 
         present(navController, animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "刪除") { (_, indexPath) in
+            print(indexPath.section)
+        }
+        
+        return [deleteAction]
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
