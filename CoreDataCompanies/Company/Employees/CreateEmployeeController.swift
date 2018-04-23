@@ -31,6 +31,29 @@ class CreateEmployeeController: UIViewController{
         return tf
     }()
     
+    let birthdayLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "Birthday"
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+    
+    let birthdayTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "MM/dd/yyyy"
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
+    
+    let employeeTypeSegmentedControl: UISegmentedControl = {
+        let types = ["Executive", "Senior Management", "Staff"]
+        let sc = UISegmentedControl(items: types)
+        sc.selectedSegmentIndex = 0
+        sc.tintColor = .darkBlue
+        sc.translatesAutoresizingMaskIntoConstraints = false
+        return sc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +61,6 @@ class CreateEmployeeController: UIViewController{
         navigationItem.title = "Create Employee"
         view.backgroundColor = .darkBlue
         
-        _ = setupLightBlueBackgroundView(height: 50)
         setupUI()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSave))
@@ -47,7 +69,25 @@ class CreateEmployeeController: UIViewController{
     @objc private func handleSave(){
         guard let employeeName = nameTextField.text else { return }
         guard let company = company else { return }
-        let tuple = CoreDataManager.shared.createEmpolyee(employeeName: employeeName, company: company)
+        
+        guard let birthdayText = birthdayTextField.text else { return }
+        
+        if birthdayText.isEmpty{
+            showError(title: "Empty Birthday", message: "You have not entered a birthday")
+            return
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        guard let birthdayDate = dateFormatter.date(from: birthdayText) else {
+            showError(title: "Bad Date", message: "Birthday date entered not valid")
+            return
+        }
+        
+        guard let employeeType = employeeTypeSegmentedControl.titleForSegment(at: employeeTypeSegmentedControl.selectedSegmentIndex) else { return }
+        
+        let tuple = CoreDataManager.shared.createEmpolyee(employeeName: employeeName, birthday: birthdayDate, employeeType: employeeType, company: company)
+        
         if let error = tuple.1{
             print(error)
         }else{
@@ -57,7 +97,16 @@ class CreateEmployeeController: UIViewController{
         }
     }
     
+    private func showError(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
     private func setupUI(){
+        
+        _ = setupLightBlueBackgroundView(height: 150)
+
         view.addSubview(nameLabel)
         nameLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         nameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
@@ -69,6 +118,24 @@ class CreateEmployeeController: UIViewController{
         nameTextField.leftAnchor.constraint(equalTo: nameLabel.rightAnchor).isActive = true
         nameTextField.heightAnchor.constraint(equalTo: nameLabel.heightAnchor).isActive = true
         nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        view.addSubview(birthdayLabel)
+        birthdayLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0).isActive = true
+        birthdayLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
+        birthdayLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        birthdayLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        view.addSubview(birthdayTextField)
+        birthdayTextField.topAnchor.constraint(equalTo: birthdayLabel.topAnchor).isActive = true
+        birthdayTextField.leftAnchor.constraint(equalTo: birthdayLabel.rightAnchor).isActive = true
+        birthdayTextField.heightAnchor.constraint(equalTo: birthdayLabel.heightAnchor).isActive = true
+        birthdayTextField.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        view.addSubview(employeeTypeSegmentedControl)
+        employeeTypeSegmentedControl.topAnchor.constraint(equalTo: birthdayLabel.bottomAnchor, constant: 0).isActive = true
+        employeeTypeSegmentedControl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
+        employeeTypeSegmentedControl.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
+        employeeTypeSegmentedControl.heightAnchor.constraint(equalToConstant: 34).isActive = true
     }
     
     @objc private func handleCancel(){
