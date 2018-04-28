@@ -21,8 +21,16 @@ class IndentedLabel: UILabel {
 class EmployeesController: UITableViewController, CreateEmployeeControllerDelegate {
     
     func didAddEmployee(employee: Employee) {
-        employees.append(employee)
-        tableView.reloadData()
+//        fetchEmployees()
+//        tableView.reloadData()
+        guard let type = employee.type else { return }
+        guard let section = employeeTypes.index(of: type) else { return }
+        let row = allEmployees[section].count
+        let insertionIndexPath = IndexPath(row: row, section: section)
+        
+        allEmployees[section].append(employee)
+        
+        tableView.insertRows(at: [insertionIndexPath], with: .middle)
     }
     
     let cellId = "cellId"
@@ -45,43 +53,22 @@ class EmployeesController: UITableViewController, CreateEmployeeControllerDelega
 
     }
     
-    
-    var shortNameEmployees = [Employee]()
-    var longNameEmployees = [Employee]()
-    
     var allEmployees = [[Employee]]()
+    var employeeTypes = [
+        EmployeeType.Executive.rawValue,
+        EmployeeType.SeniorManagement.rawValue,
+        EmployeeType.LeadEngineer.rawValue
+    
+    ]
     
     private func fetchEmployees(){
         guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
-        employees = companyEmployees
         
-        shortNameEmployees = companyEmployees.filter({ (employee) -> Bool in
-            if let count = employee.name?.count{
-                return count < 13
-            }
-            return false
-        })
-        
-        longNameEmployees = companyEmployees.filter({ (employee) -> Bool in
-            if let count = employee.name?.count{
-                return count >= 13
-            }
-            return false
-        })
-        
-        allEmployees = [shortNameEmployees, longNameEmployees]
-        
-//        let context = CoreDataManager.shared.persistentContainer.viewContext
-//        let request = NSFetchRequest<Employee>(entityName: "Employee")
-//
-//        do{
-//            let employees = try context.fetch(request)
-//            employees.forEach({print($0.name ?? "")})
-//            self.employees = employees
-//
-//        }catch let err {
-//            print("Failed to fetch employees:" ,err)
-//        }
+        allEmployees.removeAll()
+        employeeTypes.forEach { (employeeType) in
+            let employeeType = companyEmployees.filter({$0.type == employeeType})
+            allEmployees.append(employeeType)
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,13 +78,7 @@ class EmployeesController: UITableViewController, CreateEmployeeControllerDelega
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = IndentedLabel()
         
-        if section == 0{
-            label.text = "Short names"
-        }else if section == 1{
-            label.text = "Long names"
-        }else{
-            label.text = "Really long names"
-        }
+        label.text = employeeTypes[section]
         label.backgroundColor = .lightBlue
         label.textColor = .darkBlue
         label.font = UIFont.boldSystemFont(ofSize: 16)

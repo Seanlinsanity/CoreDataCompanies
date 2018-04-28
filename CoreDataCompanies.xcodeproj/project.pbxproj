@@ -23,6 +23,7 @@
 		14D6B25F206C99120045D08F /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6B25E206C99110045D08F /* CompanyCell.swift */; };
 		14D6B261206C99EF0045D08F /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6B260206C99EF0045D08F /* UIColor+theme.swift */; };
 		14D6B263206C9D130045D08F /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6B262206C9D130045D08F /* Company.swift */; };
+		14F91C562091B6B300B191DF /* EmployeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F91C552091B6B300B191DF /* EmployeeType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		14D6B25E206C99110045D08F /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		14D6B260206C99EF0045D08F /* UIColor+theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
 		14D6B262206C9D130045D08F /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		14F91C552091B6B300B191DF /* EmployeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			children = (
 				140940CB2089D2FD00722532 /* CreateEmployeeController.swift */,
 				1467D37B2089D0380096E73B /* EmployeesController.swift */,
+				14F91C552091B6B300B191DF /* EmployeeType.swift */,
 			);
 			path = Employees;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				140940CA2089D22600722532 /* UIViewController+Helper.swift in Sources */,
 				14D6B263206C9D130045D08F /* Company.swift in Sources */,
 				140ED5A420899244008DE919 /* CompaniesController+UITableView.swift in Sources */,
+				14F91C562091B6B300B191DF /* EmployeeType.swift in Sources */,
 				140940CC2089D2FD00722532 /* CreateEmployeeController.swift in Sources */,
 				1467D37C2089D0380096E73B /* EmployeesController.swift in Sources */,
 				14D6B24D206C8FF80045D08F /* AppDelegate.swift in Sources */,
