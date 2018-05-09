@@ -12,7 +12,9 @@
 		140ED5A220899187008DE919 /* CompaniesController+createCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140ED5A120899186008DE919 /* CompaniesController+createCompany.swift */; };
 		140ED5A420899244008DE919 /* CompaniesController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140ED5A320899244008DE919 /* CompaniesController+UITableView.swift */; };
 		142B60C120805B3900004E70 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142B60C020805B3900004E70 /* CoreDataManager.swift */; };
+		142F15E920A1555F004311AD /* CompaniesAutoUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142F15E820A1555F004311AD /* CompaniesAutoUpdateController.swift */; };
 		1467D37C2089D0380096E73B /* EmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1467D37B2089D0380096E73B /* EmployeesController.swift */; };
+		1492BD1D20A2A02700C13DCF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492BD1C20A2A02700C13DCF /* Service.swift */; };
 		1495BFD3206F2D0B00F72BC3 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495BFD2206F2D0B00F72BC3 /* CreateCompanyController.swift */; };
 		1495BFD6206F397000F72BC3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1495BFD4206F397000F72BC3 /* DataModel.xcdatamodeld */; };
 		14D6B24D206C8FF80045D08F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6B24C206C8FF80045D08F /* AppDelegate.swift */; };
@@ -32,7 +34,9 @@
 		140ED5A120899186008DE919 /* CompaniesController+createCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompaniesController+createCompany.swift"; sourceTree = "<group>"; };
 		140ED5A320899244008DE919 /* CompaniesController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompaniesController+UITableView.swift"; sourceTree = "<group>"; };
 		142B60C020805B3900004E70 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		142F15E820A1555F004311AD /* CompaniesAutoUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesAutoUpdateController.swift; sourceTree = "<group>"; };
 		1467D37B2089D0380096E73B /* EmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesController.swift; sourceTree = "<group>"; };
+		1492BD1C20A2A02700C13DCF /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		1495BFD2206F2D0B00F72BC3 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 		1495BFD5206F397000F72BC3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		14D6B249206C8FF80045D08F /* CoreDataCompanies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataCompanies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +81,8 @@
 				140ED5A120899186008DE919 /* CompaniesController+createCompany.swift */,
 				140ED5A320899244008DE919 /* CompaniesController+UITableView.swift */,
 				1495BFD2206F2D0B00F72BC3 /* CreateCompanyController.swift */,
+				142F15E820A1555F004311AD /* CompaniesAutoUpdateController.swift */,
+				1492BD1C20A2A02700C13DCF /* Service.swift */,
 			);
 			path = Company;
 			sourceTree = "<group>";
@@ -205,8 +211,10 @@
 				140ED5A420899244008DE919 /* CompaniesController+UITableView.swift in Sources */,
 				14F91C562091B6B300B191DF /* EmployeeType.swift in Sources */,
 				140940CC2089D2FD00722532 /* CreateEmployeeController.swift in Sources */,
+				1492BD1D20A2A02700C13DCF /* Service.swift in Sources */,
 				1467D37C2089D0380096E73B /* EmployeesController.swift in Sources */,
 				14D6B24D206C8FF80045D08F /* AppDelegate.swift in Sources */,
+				142F15E920A1555F004311AD /* CompaniesAutoUpdateController.swift in Sources */,
 				142B60C120805B3900004E70 /* CoreDataManager.swift in Sources */,
 				1495BFD3206F2D0B00F72BC3 /* CreateCompanyController.swift in Sources */,
 				140ED5A220899187008DE919 /* CompaniesController+createCompany.swift in Sources */,
