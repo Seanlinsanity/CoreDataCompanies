@@ -40,9 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-//        let companiesController = CompaniesController()
-        let companiesAutoUpdateController = CompaniesAutoUpdateController()
-        let navigationController = CustomNavigationController(rootViewController: companiesAutoUpdateController)
+        let companiesController = CompaniesController()
+//        let companiesAutoUpdateController = CompaniesAutoUpdateController()
+        let navigationController = CustomNavigationController(rootViewController: companiesController)
         window?.rootViewController = navigationController
         
         return true

@@ -445,7 +445,7 @@
 				1438EC0720A422D900D2E319 /* DataModel_v1.1.xcdatamodel */,
 				1495BFD5206F397000F72BC3 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 141F4AFE20A426D2009EB6C1 /* DataModel_v1. 2.xcdatamodel */;
+			currentVersion = 1495BFD5206F397000F72BC3 /* DataModel.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
